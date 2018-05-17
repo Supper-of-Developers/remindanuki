@@ -200,3 +200,22 @@ def insert_reminder(mysql_connection, cursor, sender_id, context, remind_at):
     """
     cursor.execute('INSERT INTO reminders (sender_id, text, remind_at) VALUES (%s, %s, %s);', (sender_id, context, remind_at))
     mysql_connection.commit()
+
+# def inform_weather(self):
+#     text = "[{0}]\n".format(self.data)
+#     text += "{0}".format(self.telop)
+    
+#     print("本日の天気")
+    
+#     temp = ""
+#     if self.temp_max:
+#         temp += "\n"
+#         temp = "最高気温{0}度".format(self.temp_max)
+
+#     if self.temp_min:
+#         if temp:
+#             temp += "\n"
+#         temp += "最低気温{0}度だぽん".format(self.temp_min)
+
+#     else:
+#         return #いまどこにリターンすべきか考えてる、とりあえず保留
