@@ -7,6 +7,7 @@ def weather_information():
     r = http.request('Get','http://weather.livedoor.com/forecast/webservice/json/v1?city=130010')
     r = json.loads(r._body)
 
-    date = r['forecasts'][0]['date']
+    date = r['forecasts'][0]['dateLabel']
     weather = r['forecasts'][0]['telop']
-    return date + "\n" + "東京のお天気は" + weather
+    temp = r['forecasts'][0]['temperature']['max']['celsius']
+    return date + "の東京の天気は" + weather + "\n" + "最高気温は" + temp + "度"

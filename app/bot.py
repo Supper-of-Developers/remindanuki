@@ -90,7 +90,8 @@ def handle_message(event):
         event.message.text = event.message.text.replace("÷","/")
         func.reply_message(event.reply_token, TextSendMessage(text="答えは"+str(eval(event.message.text))+"だぽん"))
     elif event.message.text == "おはよう" :
-        func.reply_message(event.reply_token, TextSendMessage(text="おはようぽん！今日１日もキバるで！"))
+        weather_info = weather.weather_information()
+        func.reply_message(event.reply_token, TextSendMessage(text="おはようぽん！今日１日もキバるで！" +"\n"+ weather_info +"だぽん"))
     elif event.message.text == "ありがとう":
         func.reply_message(event.reply_token, TextSendMessage(text="ええでええで〜"))
     elif event.message.text == "さよなら":
