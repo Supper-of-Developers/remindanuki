@@ -200,3 +200,16 @@ def insert_reminder(mysql_connection, cursor, sender_id, context, remind_at):
     """
     cursor.execute('INSERT INTO reminders (sender_id, text, remind_at) VALUES (%s, %s, %s);', (sender_id, context, remind_at))
     mysql_connection.commit()
+
+def get_sql_send_id():
+    # mysqlに接続
+    mysql_connection = getMysqlPoolConnection()
+    cursor = mysql_connection.cursor(dictionary=True)
+    
+    sql = "SELECT send_id FROM senders;"
+    cursor.execute(sql)
+    rows = cursor.fetchall()
+    # mysqlから切断
+    cursor.close()
+    mysql_connection.close()
+    return rows

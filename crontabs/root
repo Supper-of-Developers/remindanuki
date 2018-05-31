@@ -7,3 +7,5 @@
 0       5       1       *       *       run-parts /etc/periodic/monthly
 *       *       *       *       *       python /app/remind.py
 */30    23      *       *       1-5     python /app/train.py
+0       24      *       *       *       python /app/weather.py
+0       24      *       *       *       python /app/schedule.py
